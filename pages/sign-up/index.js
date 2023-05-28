@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./styles.module.css";
+import styles from "../login/styles.module.css";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -7,7 +7,8 @@ export default function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSignUp = () => {
+  const handleSignUp = (e) => {
+    e.preventDefault();
     if (name && password && password === confirmPassword) {
       localStorage.setItem("name", name);
       localStorage.setItem("password", password);
@@ -23,9 +24,10 @@ export default function SignUp() {
     <>
       <div className={styles.login_page}>
         <h1>Welcome to todo list app</h1>
-        <div className={styles.form}>
+        <form className={styles.form} onSubmit={handleSignUp}>
           <div>
             <input
+              id="username"
               type="text"
               placeholder="Username"
               onChange={(e) => {
@@ -33,6 +35,7 @@ export default function SignUp() {
               }}
             />
             <input
+              id="password"
               type="password"
               placeholder="Password"
               onChange={(e) => {
@@ -40,6 +43,7 @@ export default function SignUp() {
               }}
             />
             <input
+              id="confirm-password"
               type="password"
               placeholder="Confirm password"
               onChange={(e) => {
@@ -47,6 +51,7 @@ export default function SignUp() {
               }}
             />
             <div
+              id="error-field"
               style={{
                 color: "red",
                 textAlign: "left",
@@ -59,12 +64,12 @@ export default function SignUp() {
             >
               {error}
             </div>
-            <button onClick={handleSignUp}>create</button>
+            <button id="btn-signin">create</button>
             <p className={styles.message}>
               Already registered? <a href="/login">Sign In</a>
             </p>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );

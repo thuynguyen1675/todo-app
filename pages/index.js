@@ -10,18 +10,10 @@ export default function Home() {
     }
   }, []);
   return (
-    <div>
-      <nav
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          margin: "20px",
-        }}
-      >
-        <span>LOGO</span>
-        <span>Hi ThuyNT</span>
-      </nav>
+    <div style={{ width: "100%" }}>
+      <h1 style={{ margin: "20px 0", textAlign: "center" }}>
+        Welcome to todo app
+      </h1>
       <InputField />
       <TodoList />
     </div>

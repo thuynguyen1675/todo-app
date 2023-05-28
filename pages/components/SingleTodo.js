@@ -25,15 +25,16 @@ const SingleTodo = ({ todo, todos, setTodos }) => {
   }, [isEdit]);
   return (
     <form
-      className={styles.todos__single}
+      className={styles.todos_single}
       onSubmit={(e) => handleEdit(e, todo.id)}
     >
       {isEdit ? (
         <input
+          id="todo-edit"
           ref={inputRef}
           type="text"
           value={todoEdit}
-          className={styles.todos__single_text}
+          className={styles.todos_single_text}
           onChange={(e) => {
             setTodoEdit(e.target.value);
           }}
@@ -44,7 +45,8 @@ const SingleTodo = ({ todo, todos, setTodos }) => {
         />
       ) : (
         <span
-          className={styles.todos__single_text}
+          id="todo"
+          className={styles.todos_single_text}
           onDoubleClick={() => {
             setIsEdit(true);
           }}

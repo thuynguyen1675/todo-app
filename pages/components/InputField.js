@@ -13,9 +13,9 @@ const InputField = () => {
           JSON.stringify([{ id: Date.now(), name: value }])
         );
       } else {
-        const a = JSON.parse(listTodo);
-        a.push({ id: Date.now(), name: value });
-        localStorage.setItem("todo-list", JSON.stringify(a));
+        const listObj = JSON.parse(listTodo);
+        listObj.push({ id: Date.now(), name: value });
+        localStorage.setItem("todo-list", JSON.stringify(listObj));
       }
     }
   };
@@ -31,11 +31,12 @@ const InputField = () => {
         ref={inputRef}
         type="input"
         placeholder="Enter a task..."
-        className={styles.input__box}
+        className={styles.input_box}
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        id="input-field"
       />
-      <button type="submit" className={styles.input_submit}>
+      <button type="submit" className={styles.input_submit} id="btn-submit">
         Go{" "}
       </button>
     </form>
