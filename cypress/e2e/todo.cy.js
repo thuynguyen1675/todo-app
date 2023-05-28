@@ -21,12 +21,6 @@ describe("Test case Login", () => {
     cy.get("#todo").should("contain", "Learning");
   });
 
-  //   it("should not display a todo when submit without value", () => {
-  //     cy.get("#input-field").click();
-  //     cy.get("#btn-submit").click();
-  //     cy.get("#todo").should("not.be.visible");
-  //   });
-
   it("can edit when double click a todo item", () => {
     cy.get("#input-field").type("Reading");
     cy.get("#btn-submit").click();
